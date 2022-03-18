@@ -1,34 +1,15 @@
 import React, { useState } from "react";
 import FormSignIn from "./FormSignIn";
 import FormRegister from "./FormRegister";
+import { NavLink } from "react-router-dom";
 
 const SignIn = () => {
-  const [currentForm, setCurrentForm] = useState("signIn");
-  const [classNameButtonSignin, setClassNameButtonSignin] =
-    useState(" sign-in lt-active");
-  const [classNameButtonRegister, setClassNameButtonRegister] =
-    useState(" register");
-
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    if (currentForm === "register") {
-      setClassNameButtonSignin(" sign-in lt-active");
-      setClassNameButtonRegister(" register");
-    }
-    setCurrentForm("signIn");
-  };
-  const handleRegister = (e) => {
-    e.preventDefault();
-    if (currentForm === "signIn") {
-      setClassNameButtonRegister(" register lt-active");
-      setClassNameButtonSignin(" sign-in");
-    }
-    setCurrentForm("register");
-  };
   return (
     <div>
       <div className="login-link row mx-0">
-        <button
+        <NavLink to="user/sign-in">Sign In</NavLink>
+        <NavLink to="user/register">Register</NavLink>
+        {/* <button
           className={"px-3 py-2 col fs-4" + classNameButtonSignin}
           type="button"
           onClick={handleSignIn}
@@ -41,11 +22,7 @@ const SignIn = () => {
           onClick={handleRegister}
         >
           Register
-        </button>
-      </div>
-      <div className="login-form py-5 px-3">
-        {currentForm === "signIn" && <FormSignIn />}
-        {currentForm === "register" && <FormRegister />}
+        </button> */}
       </div>
     </div>
   );
