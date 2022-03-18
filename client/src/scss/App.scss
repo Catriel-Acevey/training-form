@@ -1,0 +1,129 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $mint-tulip;
+  //   background: url(https://www.skybrary.org/sites/all/themes/custom/at_rrkidz/images/sign-in-balloon.png);
+}
+
+//************************************************************************************
+//              Button
+//*************************************************************************************
+.form-submit {
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-signin {
+  color: $white;
+  background: $mojo;
+  border: 3px solid $mojo;
+}
+
+.btn-signin:hover {
+  color: $mojo;
+  background-color: $white;
+}
+
+.btn-register {
+  color: $white;
+  background: $scooter;
+  border: 3px solid $scooter;
+}
+
+.btn-register:hover {
+  color: $scooter;
+  background-color: $white;
+}
+
+//************************************************************************************
+//              Form Links
+//************************************************************************************
+
+.login-link {
+  button {
+    border: 0;
+    // font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .lt-active {
+    @extend button;
+    background-color: $white;
+  }
+}
+@media (max-width: 979px) {
+  .sign-in {
+    color: $mojo;
+  }
+  .register {
+    color: $scooter;
+  }
+}
+@media (min-width: 980px) {
+  .login-link {
+    button {
+      color: $white;
+    }
+    .lt-active {
+      color: $black;
+    }
+    .sign-in:hover {
+      color: $mojo;
+    }
+    .register:hover {
+      color: $scooter;
+    }
+  }
+}
+
+//************************************************************************************
+//              Form
+//************************************************************************************
+
+.login-form {
+  border: 5px solid $white;
+  .captcha {
+    display: flex;
+    justify-content: center;
+  }
+  label {
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: 980px) {
+  .login-form {
+    background: rgba(0, 0, 0, 0.5);
+    label {
+      color: $white;
+    }
+    p {
+      color: $white;
+      font-size: 13px;
+    }
+    a {
+      color: $white;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 979px) {
+  .login-form {
+    background-color: $white;
+  }
+  a {
+    color: $black;
+  }
+}

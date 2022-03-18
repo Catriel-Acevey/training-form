@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "pedro@mail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b"
+    },
+    {
+      "id": 2,
+      "email": "juan@mail.com",
+      "password": "01cfcd4f6b8770febfb40cb906715822"
+    },
+    {
+      "email": "correo@correo.com",
+      "password": "b5e50dc6642a7fce5f623c097de86fa1",
+      "id": 3
+    }
+  ]
+}
