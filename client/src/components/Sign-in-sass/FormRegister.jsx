@@ -108,7 +108,7 @@ const FormRegister = () => {
                           {" "}
                           please complete the captcha{" "}
                         </div> */}
-                        <TextError text="Please complete the captcha" />
+                        <TextError text={"Please complete the captcha"} />
                       </div>
                     )}
                     <div className="d-grid col-6 mx-auto mt-5">
