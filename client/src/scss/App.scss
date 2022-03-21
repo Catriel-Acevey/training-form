@@ -40,19 +40,17 @@ body {
 }
 
 //************************************************************************************
-//              Form Links
+//              NavForm
 //************************************************************************************
 
 .login-link {
-  button {
-    border: 0;
-    // font-size: 20px;
+  a {
+    text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     background: rgba(0, 0, 0, 0.5);
   }
   .lt-active {
-    @extend button;
     background-color: $white;
   }
 }
@@ -66,7 +64,7 @@ body {
 }
 @media (min-width: 980px) {
   .login-link {
-    button {
+    a {
       color: $white;
     }
     .lt-active {
