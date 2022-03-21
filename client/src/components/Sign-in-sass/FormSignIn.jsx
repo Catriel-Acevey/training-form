@@ -10,7 +10,7 @@ const FormSignIn = () => {
         <div className="row">
           <div className="col-md-4 offset-md-4">
             <NavForm />
-            <div className="login-form">
+            <div className="login-form px-3 py-5">
               <Formik
                 initialValues={{
                   email: "",
