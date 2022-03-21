@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
 import NavForm from "./NavForm";
+import TextError from "./TextError";
 
 const FormRegister = () => {
   const [validCaptcha, setValidCaptcha] = useState(null);
@@ -69,9 +70,7 @@ const FormRegister = () => {
                       />
                       <ErrorMessage
                         name="email"
-                        component={() => (
-                          <div className="text-danger">{errors.email}</div>
-                        )}
+                        component={() => <TextError text={errors.email} />}
                       />
                     </div>
                     <div className="mb-3">
@@ -87,9 +86,7 @@ const FormRegister = () => {
                       />
                       <ErrorMessage
                         name="password"
-                        component={() => (
-                          <div className="text-danger">{errors.password}</div>
-                        )}
+                        component={() => <TextError text={errors.password} />}
                       />
                     </div>
                     <div className="mb-3">
@@ -107,10 +104,11 @@ const FormRegister = () => {
                     </div>
                     {validCaptcha === false && (
                       <div className="captcha">
-                        <div className="mt-1 text-danger">
+                        {/* <div className="mt-1 text-danger">
                           {" "}
                           please complete the captcha{" "}
-                        </div>
+                        </div> */}
+                        <TextError text="Please complete the captcha" />
                       </div>
                     )}
                     <div className="d-grid col-6 mx-auto mt-5">

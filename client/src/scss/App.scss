@@ -125,3 +125,18 @@ body {
     color: $black;
   }
 }
+
+//************************************************************************************
+//              TextError
+//************************************************************************************
+
+.text-error {
+  background-color: $provincial-pink;
+  background-image: url("https://www.skybrary.org/misc/message-24-error.png");
+  background-repeat: no-repeat;
+  background-position: 0.5rem 0.5rem;
+  border: 1px solid;
+  border-color: $flamingo;
+  padding-left: 3rem;
+  color: $totem-pole;
+}

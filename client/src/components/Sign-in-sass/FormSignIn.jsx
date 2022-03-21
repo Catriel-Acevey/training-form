@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import NavForm from "./NavForm";
+import TextError from "./TextError";
 
 const FormSignIn = () => {
   return (
@@ -57,9 +58,7 @@ const FormSignIn = () => {
                       />
                       <ErrorMessage
                         name="email"
-                        component={() => (
-                          <div className="text-danger">{errors.email}</div>
-                        )}
+                        component={() => <TextError text={errors.email} />}
                       />
                     </div>
                     <div className="mb-3">
@@ -75,9 +74,7 @@ const FormSignIn = () => {
                       />
                       <ErrorMessage
                         name="password"
-                        component={() => (
-                          <div className="text-danger">{errors.password}</div>
-                        )}
+                        component={() => <TextError text={errors.password} />}
                       />
                     </div>
                     <div className="mb-3 d-flex justify-content-end">
