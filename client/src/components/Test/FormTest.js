@@ -1,20 +1,14 @@
 import "./App.css";
 import { Form, Formik } from "formik";
 import React, { useState } from "react";
-import { Redirect, Switch, Route } from "react-router";
+import { Navigate, Routes, Route } from "react-router";
 import UserInfo from "./Components/UserInfo";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { studentPath } from "./Paths";
 import { studentRoute, unemployedRoute, workerRoute } from "./Routes";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe(
-  "pk_test_51KRcgGEpX8DBeifaxlqkhlxhhX3Nje6n84bDMqd3Q1EZ6Xg5K623HuyOvTj4oFuJ8Sqpxdu0xyizb0XPdRVKFCSG00cUiebq1J"
-);
-
-function App() {
-  let history = useHistory();
+function FormTest() {
+  let navigate = useNavigate();
   const [steps, setSteps] = useState(studentPath);
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -31,13 +25,13 @@ function App() {
   const next = () => {
     let routeTo = steps[activeStep + 1];
     setActiveStep(activeStep + 1);
-    history.push(`/form/${routeTo}`);
+    navigate(`/form/${routeTo}`);
   };
 
   const previous = () => {
     let routeTo = steps[activeStep - 1];
     setActiveStep(activeStep - 1);
-    history.push(`/form/${routeTo}`);
+    navigate(`/form/${routeTo}`);
   };
 
   const handleSubmit = async (values, bag) => {
@@ -50,7 +44,7 @@ function App() {
     }
   };
 
-  return (<Elements stripe={stripePromise}>
+  return (
     <div className="App">
       <Formik
         initialValues={{
@@ -71,14 +65,14 @@ function App() {
           <Form>
             <div className="container">
               <div className="form">
-                <Switch>
-                  <Redirect from="/" exact to={`/form/user-info`} />
+                <Routes>
+                  <Navigate from="/" exact to={`/form/user-info`} />
                   <Route
                     path="/form/user-info"
                     render={() => <UserInfo setSteps={setSteps}></UserInfo>}
                   ></Route>
                   {handleRoute(values)}
-                </Switch>
+                </Routes>
                 <div>
                   {activeStep > 0 && (
                     <button type="button" onClick={() => previous()}>
@@ -95,8 +89,7 @@ function App() {
         )}
       </Formik>
     </div>
-    </Elements>
   );
 }
 
-export default App;
+export default FormTest;
