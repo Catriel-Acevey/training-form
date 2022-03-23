@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReCAPTCHA from "react-google-recaptcha";
 import NavForm from "./NavForm";
 import TextError from "./TextError";
+import * as Yup from "yup";
 
 const FormRegister = () => {
   const [validCaptcha, setValidCaptcha] = useState(null);
@@ -12,6 +13,11 @@ const FormRegister = () => {
       setValidCaptcha(true);
     }
   };
+  const validate = Yup.object({
+    email: Yup.string()
+      .required("Please enter an email")
+      .email("The email entered is not valid"),
+  });
   const handleSubmit = (values) => {
     if (captcha.current.getValue()) {
       setValidCaptcha(true);
@@ -32,27 +38,28 @@ const FormRegister = () => {
                   email: "",
                   password: "",
                 }}
-                validate={(values) => {
-                  let errors = {};
+                validationSchema={validate}
+                // validate={(values) => {
+                //   let errors = {};
 
-                  // Email validation
-                  if (!values.email) {
-                    errors.email = "Please enter an email";
-                  } else if (
-                    !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-                      values.email
-                    )
-                  ) {
-                    errors.email = "The email entered is not valid";
-                  }
+                //   // Email validation
+                //   if (!values.email) {
+                //     errors.email = "Please enter an email";
+                //   } else if (
+                //     !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+                //       values.email
+                //     )
+                //   ) {
+                //     errors.email = "The email entered is not valid";
+                //   }
 
-                  //Password validation
-                  if (!values.password) {
-                    errors.password = "Please enter a password";
-                  }
+                //   //Password validation
+                //   if (!values.password) {
+                //     errors.password = "Please enter a password";
+                //   }
 
-                  return errors;
-                }}
+                //   return errors;
+                // }}
                 onSubmit={handleSubmit}
               >
                 {({ errors }) => (
