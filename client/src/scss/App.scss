@@ -143,3 +143,19 @@ body {
   padding-left: 3rem;
   color: $totem-pole;
 }
+
+//************************************************************************************
+//              FormRecover
+//************************************************************************************
+
+.region{
+  background-image: url("https://www.skybrary.org/sites/all/themes/custom/at_rrkidz/images/Signin/980/002_hero.jpg");
+  height: 31rem;
+
+  .form{
+    color: #92979A;
+    label{
+      font-weight: bold;
+    }
+  }
+}

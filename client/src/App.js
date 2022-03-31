@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router";
 import FormSignIn from "./components/Sign-in-sass/FormSignIn";
 import FormRegister from "./components/Sign-in-sass/FormRegister";
+import FormRecover from "./components/Sign-in-sass/FormRecover";
 import "./scss/App.scss";
 // import { loadStripe } from "@stripe/stripe-js";
 // import { Elements } from "@stripe/react-stripe-js";
@@ -23,6 +24,7 @@ function App() {
     <Routes>
       <Route path="user/sign-in" element={<FormSignIn />} />
       <Route path="user/register" element={<FormRegister />} />
+      <Route path="parents/forgot-password" element={<FormRecover />} />
     </Routes>
   );
 }
