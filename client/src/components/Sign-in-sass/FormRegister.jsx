@@ -15,8 +15,19 @@ const FormRegister = () => {
   };
   const validate = Yup.object({
     email: Yup.string()
-      .required("Please enter an email")
-      .email("The email entered is not valid"),
+      .required("Please enter an email.")
+      .email("The email entered is not valid."),
+    password: Yup.string()
+      .required("Please enter a password.")
+      .matches(
+        /(?=.*[a-z])/,
+        "Password must contain at least one lowercase character."
+      )
+      .matches(
+        /(?=.*[A-Z])/,
+        "Password must contain at least one uppercase character."
+      )
+      .min(8, "Password must be at least 8 characters in length."),
   });
   const handleSubmit = (values) => {
     if (captcha.current.getValue()) {
