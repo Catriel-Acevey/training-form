@@ -73,14 +73,16 @@ const FormRegister = () => {
                 // }}
                 onSubmit={handleSubmit}
               >
-                {({ errors }) => (
+                {({ errors, touched }) => (
                   <Form>
                     <div className="mb-3">
                       <label className="form-label" htmlFor="email-register">
                         Your Email
                       </label>
                       <Field
-                        className="form-control"
+                        className={`form-control ${
+                          errors.email && touched.email && "is-invalid"
+                        }`}
                         type="email"
                         id="email-register"
                         name="email"
@@ -96,7 +98,9 @@ const FormRegister = () => {
                         Password
                       </label>
                       <Field
-                        className="form-control"
+                        className={`form-control ${
+                          errors.password && touched.password && "is-invalid"
+                        }`}
                         type="password"
                         id="password-register"
                         name="password"
